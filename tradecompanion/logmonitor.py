@@ -12,7 +12,7 @@ from pathofexile.log import ChatObject, ChatType, LogType
 ENCODING = 'UTF-8'
 
 # poe.trade
-TRADE_MESSAGE_REGEX = re.compile(r'Hi, I would like to buy your (?P<item>.+?) listed for (?P<price>.+?) in (?P<league>.+?) \(stash tab \"(?P<stash_tab>.+?)\"; position: left (?P<left>.+?), top (?P<top>.+?)\)')
+TRADE_MESSAGE_REGEX = re.compile(r'Hi, I would like to buy your (?P<item>.+?) listed for (?P<price>.+?) in (?P<league>.+?) \(stash tab \"(?P<stash>.+?)\"; position: left (?P<left>.+?), top (?P<top>.+?)\)')
 
 
 # TODO: yield multiple new lines at once, don't bottleneck through the calling interval
@@ -51,9 +51,10 @@ class LogMonitor(QThread):
             match = TRADE_MESSAGE_REGEX.match(entry.data.message)
             if match:
                 data = match.groupdict()
-                data['name'] = entry.data.source.name
+                data['buyer'] = entry.data.source.name
                 data['guild'] = entry.data.source.guild
                 data['time'] = entry.date
+                data['other'] = ''
                 self.trade_request.emit(data)
 
             time.sleep(self.interval)

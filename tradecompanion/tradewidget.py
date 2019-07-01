@@ -1,5 +1,5 @@
 from PySide2 import QtCore
-from PySide2.QtWidgets import QWidget, QApplication
+from PySide2.QtWidgets import QApplication, QWidget
 
 from tradecompanion import xdotool
 from tradecompanion.views.tradewidget import Ui_TradeWidget
@@ -14,15 +14,15 @@ class TradeWidget(QWidget):
         self.ui.setupUi(self)
 
         self.data = data
-        self.ui.buyer.setText(data['name'])
+        self.ui.buyer.setText(data['buyer'])
         self.ui.item.setText(data['item'])
         self.ui.price.setText(data['price'])
-        self.ui.stash.setText(f'{data["league"]} (Tab: {data["stash_tab"]} / Position: {data["left"]}/{data["top"]})')
+        self.ui.stash.setText(f'{data["league"]} (Tab: {data["stash"]} / Position: {data["left"]}/{data["top"]})')
+        self.ui.other.setText(data['other'])
         self.ui.time.setText(self.data['time'].strftime('%H:%M:%S'))
 
-    # TODO: Work in progress
     @QtCore.Slot()
-    def on_copy_item_name_clicked(self):
+    def on_copy_clicked(self):
         QApplication.clipboard().setText(self.data['item'])
 
     @QtCore.Slot()
@@ -30,14 +30,14 @@ class TradeWidget(QWidget):
         window_id = xdotool.search(WINDOW_TITLE_REGEX_PATTERN)
         xdotool.windowactivate(window_id)
         xdotool.key(window_id, ['KP_Enter'])
-        xdotool.type_(window_id, f'@{self.data["name"]} ')
+        xdotool.type_(window_id, f'@{self.data["buyer"]} ')
 
     @QtCore.Slot()
-    def on_invite_to_party_clicked(self):
+    def on_invite_clicked(self):
         window_id = xdotool.search(WINDOW_TITLE_REGEX_PATTERN)
         xdotool.windowactivate(window_id)
         xdotool.key(window_id, ['KP_Enter'])
-        xdotool.type_(window_id, f'/invite {self.data["name"]}')
+        xdotool.type_(window_id, f'/invite {self.data["buyer"]}')
         xdotool.key(window_id, ['KP_Enter'])
 
     @QtCore.Slot()
@@ -45,13 +45,25 @@ class TradeWidget(QWidget):
         window_id = xdotool.search(WINDOW_TITLE_REGEX_PATTERN)
         xdotool.windowactivate(window_id)
         xdotool.key(window_id, ['KP_Enter'])
-        xdotool.type_(window_id, f'/tradewith {self.data["name"]}')
+        xdotool.type_(window_id, f'/tradewith {self.data["buyer"]}')
         xdotool.key(window_id, ['KP_Enter'])
 
     @QtCore.Slot()
-    def on_kick_from_party_clicked(self):
+    def on_kick_clicked(self):
         window_id = xdotool.search(WINDOW_TITLE_REGEX_PATTERN)
         xdotool.windowactivate(window_id)
         xdotool.key(window_id, ['KP_Enter'])
-        xdotool.type_(window_id, f'/kick {self.data["name"]}')
+        xdotool.type_(window_id, f'/kick {self.data["buyer"]}')
+        xdotool.key(window_id, ['KP_Enter'])
+
+    @QtCore.Slot()
+    def on_thanks_clicked(self):
+        window_id = xdotool.search(WINDOW_TITLE_REGEX_PATTERN)
+        xdotool.windowactivate(window_id)
+        xdotool.key(window_id, ['KP_Enter'])
+        xdotool.type_(window_id, f'@{self.data["buyer"]} Thanks!')
+        xdotool.key(window_id, ['KP_Enter'])
+
+        xdotool.key(window_id, ['KP_Enter'])
+        xdotool.type_(window_id, f'/kick {self.data["buyer"]}')
         xdotool.key(window_id, ['KP_Enter'])

@@ -1,7 +1,10 @@
 import subprocess
 
+from loguru import logger
+
 
 def run(arguments):
+    logger.debug(' '.join(arguments))
     process = subprocess.run(arguments, stdout=subprocess.PIPE, universal_newlines=True)
     return process.stdout.strip()
 
