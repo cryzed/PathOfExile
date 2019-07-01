@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file '/home/user/Documents/Code/PathOfExile/tradecompanion/views/tradewidget.ui',
 # licensing of '/home/user/Documents/Code/PathOfExile/tradecompanion/views/tradewidget.ui' applies.
 #
-# Created: Mon Jul  1 04:11:53 2019
+# Created: Mon Jul  1 18:01:12 2019
 #      by: pyside2-uic  running on PySide2 5.12.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,7 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_TradeWidget(object):
     def setupUi(self, TradeWidget):
         TradeWidget.setObjectName("TradeWidget")
-        TradeWidget.resize(497, 261)
+        TradeWidget.resize(464, 200)
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(TradeWidget)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
@@ -48,7 +48,6 @@ class Ui_TradeWidget(object):
         self.label_5.setObjectName("label_5")
         self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.label_5)
         self.other = QtWidgets.QLabel(TradeWidget)
-        self.other.setText("")
         self.other.setObjectName("other")
         self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.other)
         self.horizontalLayout_2.addLayout(self.formLayout)
@@ -64,24 +63,32 @@ class Ui_TradeWidget(object):
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.copy_item_name = QtWidgets.QPushButton(TradeWidget)
-        self.copy_item_name.setObjectName("copy_item_name")
-        self.horizontalLayout.addWidget(self.copy_item_name)
+        self.copy = QtWidgets.QPushButton(TradeWidget)
+        self.copy.setObjectName("copy")
+        self.horizontalLayout.addWidget(self.copy)
         self.whisper = QtWidgets.QPushButton(TradeWidget)
         self.whisper.setObjectName("whisper")
         self.horizontalLayout.addWidget(self.whisper)
-        self.invite_to_party = QtWidgets.QPushButton(TradeWidget)
-        self.invite_to_party.setObjectName("invite_to_party")
-        self.horizontalLayout.addWidget(self.invite_to_party)
+        self.invite = QtWidgets.QPushButton(TradeWidget)
+        self.invite.setObjectName("invite")
+        self.horizontalLayout.addWidget(self.invite)
         self.trade = QtWidgets.QPushButton(TradeWidget)
         self.trade.setObjectName("trade")
         self.horizontalLayout.addWidget(self.trade)
-        self.kick_from_party = QtWidgets.QPushButton(TradeWidget)
-        self.kick_from_party.setObjectName("kick_from_party")
-        self.horizontalLayout.addWidget(self.kick_from_party)
+        self.kick = QtWidgets.QPushButton(TradeWidget)
+        self.kick.setObjectName("kick")
+        self.horizontalLayout.addWidget(self.kick)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem1)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.thanks = QtWidgets.QPushButton(TradeWidget)
+        self.thanks.setObjectName("thanks")
+        self.horizontalLayout_3.addWidget(self.thanks)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem2)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_3)
 
         self.retranslateUi(TradeWidget)
         QtCore.QMetaObject.connectSlotsByName(TradeWidget)
@@ -97,10 +104,12 @@ class Ui_TradeWidget(object):
         self.label_4.setText(QtWidgets.QApplication.translate("TradeWidget", "<b>Stash</b>:", None, -1))
         self.stash.setText(QtWidgets.QApplication.translate("TradeWidget", "TextLabel", None, -1))
         self.label_5.setText(QtWidgets.QApplication.translate("TradeWidget", "<b>Other</b>:", None, -1))
+        self.other.setText(QtWidgets.QApplication.translate("TradeWidget", "TextLabel", None, -1))
         self.time.setText(QtWidgets.QApplication.translate("TradeWidget", "TextLabel", None, -1))
-        self.copy_item_name.setText(QtWidgets.QApplication.translate("TradeWidget", "Copy item name", None, -1))
+        self.copy.setText(QtWidgets.QApplication.translate("TradeWidget", "Copy", None, -1))
         self.whisper.setText(QtWidgets.QApplication.translate("TradeWidget", "Whisper", None, -1))
-        self.invite_to_party.setText(QtWidgets.QApplication.translate("TradeWidget", "Invite to party", None, -1))
+        self.invite.setText(QtWidgets.QApplication.translate("TradeWidget", "Invite", None, -1))
         self.trade.setText(QtWidgets.QApplication.translate("TradeWidget", "Trade", None, -1))
-        self.kick_from_party.setText(QtWidgets.QApplication.translate("TradeWidget", "Kick from party", None, -1))
+        self.kick.setText(QtWidgets.QApplication.translate("TradeWidget", "Kick", None, -1))
+        self.thanks.setText(QtWidgets.QApplication.translate("TradeWidget", "Thanks!", None, -1))
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>497</width>
-    <height>261</height>
+    <width>464</width>
+    <height>200</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -84,7 +84,7 @@
        <item row="4" column="1">
         <widget class="QLabel" name="other">
          <property name="text">
-          <string/>
+          <string>TextLabel</string>
          </property>
         </widget>
        </item>
@@ -119,9 +119,9 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="copy_item_name">
+      <widget class="QPushButton" name="copy">
        <property name="text">
-        <string>Copy item name</string>
+        <string>Copy</string>
        </property>
       </widget>
      </item>
@@ -133,9 +133,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="invite_to_party">
+      <widget class="QPushButton" name="invite">
        <property name="text">
-        <string>Invite to party</string>
+        <string>Invite</string>
        </property>
       </widget>
      </item>
@@ -147,14 +147,38 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="kick_from_party">
+      <widget class="QPushButton" name="kick">
        <property name="text">
-        <string>Kick from party</string>
+        <string>Kick</string>
        </property>
       </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QPushButton" name="thanks">
+       <property name="text">
+        <string>Thanks!</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>

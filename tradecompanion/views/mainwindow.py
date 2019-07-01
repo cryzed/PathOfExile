@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file '/home/user/Documents/Code/PathOfExile/tradecompanion/views/mainwindow.ui',
 # licensing of '/home/user/Documents/Code/PathOfExile/tradecompanion/views/mainwindow.ui' applies.
 #
-# Created: Mon Jul  1 04:11:53 2019
+# Created: Mon Jul  1 18:01:11 2019
 #      by: pyside2-uic  running on PySide2 5.12.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -13,7 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(621, 327)
+        MainWindow.resize(442, 230)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
