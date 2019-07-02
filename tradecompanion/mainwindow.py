@@ -1,7 +1,7 @@
 from PySide2.QtCore import Qt
 from PySide2.QtWidgets import QMainWindow
 
-from tradecompanion.logmonitor import LogMonitor
+from tradecompanion.logparser import LogParser
 from tradecompanion.tradewidget import TradeWidget
 from tradecompanion.views.mainwindow import Ui_MainWindow
 
@@ -15,7 +15,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.ui.tabWidget.tabCloseRequested.connect(self.on_tab_close_requested)
 
-        self.log_monitor = LogMonitor(log_path)
+        self.log_monitor = LogParser(log_path)
         self.log_monitor.trade_request.connect(self.on_trade_request)
         self.log_monitor.start()
 
@@ -24,4 +24,4 @@ class MainWindow(QMainWindow):
 
     def on_trade_request(self, data):
         trade_widget = TradeWidget(self, data)
-        self.ui.tabWidget.addTab(trade_widget, str(self.ui.tabWidget.count() + 1))
+        self.ui.tabWidget.addTab(trade_widget, f'{self.ui.tabWidget.count() + 1}')

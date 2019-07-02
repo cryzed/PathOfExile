@@ -12,7 +12,8 @@ from pathofexile.log import ChatObject, ChatType, LogType
 ENCODING = 'UTF-8'
 
 # poe.trade
-TRADE_MESSAGE_REGEX = re.compile(r'Hi, I would like to buy your (?P<item>.+?) listed for (?P<price>.+?) in (?P<league>.+?) \(stash tab \"(?P<stash>.+?)\"; position: left (?P<left>.+?), top (?P<top>.+?)\)')
+TRADE_MESSAGE_REGEX = re.compile(
+    r'Hi, I would like to buy your (?P<item>.+?) listed for (?P<price>.+?) in (?P<league>.+?) \(stash tab \"(?P<stash>.+?)\"; position: left (?P<left>.+?), top (?P<top>.+?)\)')
 
 
 # TODO: yield multiple new lines at once, don't bottleneck through the calling interval
@@ -28,7 +29,7 @@ def tail(file):
         yield line
 
 
-class LogMonitor(QThread):
+class LogParser(QThread):
     trade_request = QtCore.Signal(dict)
 
     def __init__(self, path, interval=0.1):
@@ -45,7 +46,11 @@ class LogMonitor(QThread):
                 logger.warning('Parse error: {!r}', error)
                 continue
 
-            if not (entry.type is LogType.Chat and entry.data.type is ChatType.Whisper and entry.data.target is ChatObject.Self):
+            received_whisper = (
+                    entry.type is LogType.Chat and
+                    entry.data.type is ChatType.Whisper and
+                    entry.data.target is ChatObject.Self)
+            if not received_whisper:
                 continue
 
             match = TRADE_MESSAGE_REGEX.match(entry.data.message)

@@ -1,10 +1,8 @@
 from PySide2 import QtCore
 from PySide2.QtWidgets import QApplication, QWidget
 
-from tradecompanion import xdotool
+from pathofexile import client
 from tradecompanion.views.tradewidget import Ui_TradeWidget
-
-WINDOW_TITLE_REGEX_PATTERN = r'Path of Exile$'
 
 
 class TradeWidget(QWidget):
@@ -27,43 +25,26 @@ class TradeWidget(QWidget):
 
     @QtCore.Slot()
     def on_whisper_clicked(self):
-        window_id = xdotool.search(WINDOW_TITLE_REGEX_PATTERN)
-        xdotool.windowactivate(window_id)
-        xdotool.key(window_id, ['KP_Enter'])
-        xdotool.type_(window_id, f'@{self.data["buyer"]} ')
+        window_id = client.find_path_of_exile_window()
+        client.type_chat_message(window_id, f'@{self.data["buyer"]} ', submit=False)
 
     @QtCore.Slot()
     def on_invite_clicked(self):
-        window_id = xdotool.search(WINDOW_TITLE_REGEX_PATTERN)
-        xdotool.windowactivate(window_id)
-        xdotool.key(window_id, ['KP_Enter'])
-        xdotool.type_(window_id, f'/invite {self.data["buyer"]}')
-        xdotool.key(window_id, ['KP_Enter'])
+        window_id = client.find_path_of_exile_window()
+        client.type_chat_message(window_id, f'/invite {self.data["buyer"]}')
 
     @QtCore.Slot()
     def on_trade_clicked(self):
-        window_id = xdotool.search(WINDOW_TITLE_REGEX_PATTERN)
-        xdotool.windowactivate(window_id)
-        xdotool.key(window_id, ['KP_Enter'])
-        xdotool.type_(window_id, f'/tradewith {self.data["buyer"]}')
-        xdotool.key(window_id, ['KP_Enter'])
+        window_id = client.find_path_of_exile_window()
+        client.type_chat_message(window_id, f'/tradewith {self.data["buyer"]}')
 
     @QtCore.Slot()
     def on_kick_clicked(self):
-        window_id = xdotool.search(WINDOW_TITLE_REGEX_PATTERN)
-        xdotool.windowactivate(window_id)
-        xdotool.key(window_id, ['KP_Enter'])
-        xdotool.type_(window_id, f'/kick {self.data["buyer"]}')
-        xdotool.key(window_id, ['KP_Enter'])
+        window_id = client.find_path_of_exile_window()
+        client.type_chat_message(window_id, f'/kick {self.data["buyer"]}')
 
     @QtCore.Slot()
     def on_thanks_clicked(self):
-        window_id = xdotool.search(WINDOW_TITLE_REGEX_PATTERN)
-        xdotool.windowactivate(window_id)
-        xdotool.key(window_id, ['KP_Enter'])
-        xdotool.type_(window_id, f'@{self.data["buyer"]} Thanks!')
-        xdotool.key(window_id, ['KP_Enter'])
-
-        xdotool.key(window_id, ['KP_Enter'])
-        xdotool.type_(window_id, f'/kick {self.data["buyer"]}')
-        xdotool.key(window_id, ['KP_Enter'])
+        window_id = client.find_path_of_exile_window()
+        client.type_chat_message(window_id, f'@{self.data["buyer"]} Thanks!')
+        client.type_chat_message(window_id, f'/kick {self.data["buyer"]}')

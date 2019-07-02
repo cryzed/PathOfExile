@@ -9,8 +9,8 @@ def run(arguments):
     return process.stdout.strip()
 
 
-def search(name):
-    return run(['xdotool', 'search', '--name', name])
+def search(query):
+    return run(['xdotool', 'search', *query])
 
 
 def windowactivate(window_id):
