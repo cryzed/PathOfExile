@@ -14,12 +14,12 @@ def search(query):
 
 
 def windowactivate(window_id):
-    run(['xdotool', 'windowactivate', '--sync', window_id])
+    run(['xdotool', 'windowactivate', '--sync', str(window_id)])
 
 
 def key(window_id, keys):
-    run(['xdotool', 'key', '--delay', '0', '--window', window_id, *keys])
+    run(['xdotool', 'key', '--delay', '0', '--window', str(window_id), *keys])
 
 
 def type_(window_id, text):
-    run(['xdotool', 'type', '--delay', '0', '--clearmodifiers', '--window', window_id, text])
+    run(['xdotool', 'type', '--delay', '0', '--clearmodifiers', '--window', str(window_id), text])
