@@ -3,7 +3,7 @@
 # Form implementation generated from reading ui file '/home/user/Documents/Code/PathOfExile/tradecompanion/views/tradewidget.ui',
 # licensing of '/home/user/Documents/Code/PathOfExile/tradecompanion/views/tradewidget.ui' applies.
 #
-# Created: Sun Jul  7 16:13:25 2019
+# Created: Sun Jul  7 19:55:26 2019
 #      by: pyside2-uic  running on PySide2 5.12.4
 #
 # WARNING! All changes made in this file will be lost!

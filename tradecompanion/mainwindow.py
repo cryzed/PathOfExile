@@ -3,6 +3,7 @@ from PySide2.QtCore import Qt
 from PySide2.QtWidgets import QMainWindow, QSizeGrip
 
 from tradecompanion.logparser import LogParser
+from tradecompanion.settingsdialog import SettingsDialog
 from tradecompanion.tradewidget import TradeWidget
 from tradecompanion.views.mainwindow import Ui_MainWindow
 
@@ -44,7 +45,8 @@ class MainWindow(QMainWindow):
 
     @QtCore.Slot()
     def on_settings_clicked(self):
-        pass
+        dialog = SettingsDialog(self)
+        dialog.show()
 
     def on_trade_request(self, data):
         trade_widget = TradeWidget(self, data)
