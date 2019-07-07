@@ -15,7 +15,7 @@ class TradeWidget(QWidget):
         self.ui.buyer.setText(data['buyer'])
         self.ui.item.setText(data['item'])
         self.ui.price.setText(data['price'])
-        self.ui.stash.setText(f'{data["league"]} ({data["stash"]} ({data["left"]}/{data["top"]}))')
+        self.ui.stash.setText(f'{data["league"]} ({data["stash"]}, {data["left"]}/{data["top"]})')
         self.ui.other.setText(data['other'])
         self.ui.time.setText(self.data['time'].strftime('%H:%M:%S'))
 
